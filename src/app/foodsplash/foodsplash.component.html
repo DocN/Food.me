@@ -1,0 +1,47 @@
+<div class="bodyframe">
+  <div class="container-fluid">
+      <div class="row navbar">
+          <div class="col-2">
+            <div class="logoPart">Feed.Me </div>
+          </div>
+        </div>
+  </div>
+
+  <div class="container centerContainer">
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <h1 class="inspirationMeme">Do you know the way?!? </h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 searchBox">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-8 offset-1 searchInput">
+                            <div id="locationField">
+                                <input #addressData id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" (input)="setAddress($event.target.value)"/>
+                            </div>
+                        </div>
+                        <div class="col-1 searchButton">
+                            <button type="button" class="btn btn-success" >Go!</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{address}}
+
+
+
+

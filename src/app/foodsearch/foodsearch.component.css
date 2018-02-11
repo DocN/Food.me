@@ -1,0 +1,72 @@
+.bodyframe {
+    height:1000px;
+    background-image: url("/assets/img/background.jpg");
+}
+.navbar {
+    background-color: #3581b8;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.logoPart {
+    font-size: 30px;
+    color:#F3F8f2;
+    font-weight:500;
+}
+
+.centerContainer {
+    padding-top:400px;
+}
+
+.searchBox {
+    padding-top:20px;
+    width:100%;
+    height:85px;
+    background-color:#DEE2D6;
+    border-radius: 10px;
+
+}
+.searchInput { 
+    padding:0;
+    margin-right:0px;
+}
+.searchButton {
+    margin-top:-10px;
+}
+
+.inspirationMeme {
+    text-align: center;
+    weight:1000;
+    color:#F3F8f2;
+    padding-bottom:50px;
+}
+
+.foodList {
+    padding-top:100px;
+}
+
+.listView {
+    width:100%;
+}
+.avatarImgList {
+    height:50px;
+    width:50px;
+    border-color:grey;
+    border-style: solid;
+    border-radius: 2px;
+    border-width:1px;
+}
+.textList {
+    padding-top:10px;
+    font-size: 20px;
+    text-align: left;
+}
+
+hr {
+    padding:0;
+    margin:0;
+    margin-top:5px;
+    border:         none;
+    border-left:    1px solid hsla(200, 10%, 50%,100);
+    height:         40px;
+    width:          1px;   
+}
