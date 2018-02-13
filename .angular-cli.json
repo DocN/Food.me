@@ -22,7 +22,7 @@
         "styles.css"
       ],
       "scripts": [
-        "src/assets/js/maps.js"
+        "assets/js/maps.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
