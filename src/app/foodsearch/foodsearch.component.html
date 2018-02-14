@@ -10,50 +10,38 @@
             </div>
           </div>
     </div>
-
     <div class="container foodList">
       <div class="row">
         <div class="col-12">
             <div class="card">
                 <h3 class="card-header light-blue lighten-1 white-text font-up font-bold text-center py-5">Pick your favorites!</h3>
+                <button type="button" class="btn btn-warning rngButtonContainer" (click)="randomPick($event)">Randomize!</button>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            STEM Japanese Eatery
-                            <span class="badge badge-primary badge-pill">14</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Masita Korean Cuisine
-                            <span class="badge badge-primary badge-pill">2</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            DooBoo
-                            <span class="badge badge-primary badge-pill">1</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            The Bao Place
-                            <span class="badge badge-primary badge-pill">14</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div class="container-fluid" *ngFor="let business of this.BusinessDataService.businessName; let i = index">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" *ngIf="show[i]">
                             <div class="row listView">
-                              <div class="col-1">
-                                  <img class="avatarImgList" src="https://s3-media4.fl.yelpcdn.com/bphoto/_cuW6ybM0_uHtP-Lkbpqig/90s.jpg">
-                              </div>
-                              <div class="col-6">
-                                  <h3 class="textList">Ramen Raijin</h3>
-                              </div>
-                              <div class="col-2">
-                                  <h3 class="textList">50km away</h3>
-                              </div>
-                              <div class="col-2">
-                              </div>
-                              <div class="col-1">
-                                  <div class="container">
-                                      <span class="badge badge-primary badge-pill">9.8/10</span>
-                                  </div>
-                              </div>
+                                <div class="col-3 checkBoxPadding">
+                                    <button id="input{{i}}" type="button" class="btn" [ngClass]="pick[i] ? 'success' : 'danger'" (click)="pickItem($event)">Pick!</button>
+                                    
+                                </div>
+                                <div class="col-1">
+                                    <img class="avatarImgList" src="{{businessImage[i]}}">
+                                </div>
+                                <div class="col-5">
+                                    <h3 class="textList"><a href="{{this.BusinessDataService.businessURL[i]}}" target="_blank">{{business}}</a></h3>
+                                </div>
+                                <div class="col-2">
+                                    <h3 class="textList">{{this.BusinessDataService.businessDistanceAway[i]}}KM away</h3>
+                                </div>
+                                <div class="col-1 ratingPadding">
+                                    <div class="container">
+                                        <span class="badge badge-primary badge-pill">{{this.BusinessDataService.businessRating[i]}}/5</span>
+                                    </div>
+                                </div>
                             </div>
                         </li>
+                        </div>
                     </ul>             
                 </div>
             </div>

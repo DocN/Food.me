@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { LocationServiceService } from './location-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BusinessDataService } from './business-data.service';
 
 
 const appRoutes:Routes = [
@@ -39,6 +40,7 @@ const appRoutes:Routes = [
   ],
   providers: [
     LocationServiceService,
+    BusinessDataService,
   ],
   bootstrap: [AppComponent]
 })

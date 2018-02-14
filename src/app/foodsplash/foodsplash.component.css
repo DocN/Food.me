@@ -1,6 +1,7 @@
 .bodyframe {
-    height:1000px;
+    height:100vh;
     background-image: url("/assets/img/background.jpg");
+    background-repeat: repeat-y;
 }
 .navbar {
     background-color: #3581b8;
@@ -46,4 +47,9 @@
     weight:1000;
     color:#F3F8f2;
     padding-bottom:50px;
+}
+
+.checkbox-warning-filled [type="checkbox"][class*='filled-in']:checked+label:after {
+    border-color: #FF8800;
+    background-color: #FF8800;
 }

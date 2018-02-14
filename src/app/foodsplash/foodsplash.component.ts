@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { LocationServiceService } from '../location-service.service';
+import { BusinessDataService } from '../business-data.service';
 
 @Component({
   selector: 'app-foodsplash',
@@ -9,7 +10,7 @@ import { LocationServiceService } from '../location-service.service';
   styleUrls: ['./foodsplash.component.css'],
 })
 export class FoodsplashComponent implements OnInit {
-  constructor(private LocationServiceService: LocationServiceService) { }
+  constructor(private BusinessDataService: BusinessDataService, private LocationServiceService: LocationServiceService) { }
 
   public searchSettings: any = {
     showSearchButton: false,
@@ -37,8 +38,7 @@ export class FoodsplashComponent implements OnInit {
     console.log(this.LocationServiceService.country);
     console.log(this.LocationServiceService.lat);
     console.log(this.LocationServiceService.long);
- 
-
+    this.BusinessDataService.setupBusinessData();
     //do any necessery stuff.
   }
 }

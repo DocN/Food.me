@@ -5,6 +5,7 @@ import { Headers, RequestOptions } from '@angular/http';
 import {Observable} from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import {HttpParams } from '@angular/common/http';
+import { BusinessDataService } from '../business-data.service';
 
 @Component({
   selector: 'app-foodsearch',
@@ -22,29 +23,48 @@ export class FoodsearchComponent implements OnInit {
   businessLat: string[] = [];
   
   businessLong: string[] = [];
-
-  constructor(private LocationServiceService: LocationServiceService, private http: HttpClient) { }
+  businessDistanceAway: string[] = []; 
+  show: boolean[] = [];
+  pick: boolean[] = [];
+  choices: string[] = [];
+  constructor(private BusinessDataService: BusinessDataService, private LocationServiceService: LocationServiceService, private http: HttpClient) { }
 
   ngOnInit() {
     this.address = this.LocationServiceService.formatted_address;
-
-    let url="http://www.youads.co/php/1.php";
-
-    this.http.get(url, { }).subscribe(data => {
-      console.log(data);
-      this.storeAPIData(data);
-      console.log(this.businessName.length);
-    });
+    this.businessName = this.BusinessDataService.businessName;
+    this.businessAddress = this.BusinessDataService.businessAddress;
+    this.businessImage = this.BusinessDataService.businessImage;
+    this.businessURL = this.BusinessDataService.businessURL;
+    this.businessDistanceAway = this.BusinessDataService.businessDistanceAway;
+    this.show = this.BusinessDataService.show;
   }
 
-  storeAPIData(data) {
-    data.businesses.forEach(element => {
-      this.businessName.push(element.name);
-      this.businessAddress.push(element.location.address1); 
-      this.businessLat.push(element.coordinates.latitude);
-      this.businessLong.push(element.coordinates.longitude);
-      this.businessImage.push(element.image_url);
-      this.businessURL.push(element.url);
-    });
+  removeItem(event) {
+    let id = event.target.id;
+    var str = id.replace('input', '');
+    this.show[str] = false;
   }
+
+  pickItem(event) {
+    let id = event.target.id;
+    event.target.className="btn btn-primary";
+    var str = id.replace('input', '');
+    this.pick[str] = true;
+    console.log(id);
+  }
+
+  randomPick() {
+    let counter = 0;
+    for (let i in this.pick) {
+      this.choices.push(i);
+      counter = counter +1;
+    }
+    let result = Math.floor((Math.random() * counter) + 0);
+    for (let i in this.show) {
+      this.show[i] = false;
+    }   
+    this.show[this.choices[result]] = true;
+  }
+
+
 }
