@@ -20,6 +20,7 @@ export class FoodsearchComponent implements OnInit {
   businessImage: string[] = [];
   businessURL: string[] = [];
   businessLat: string[] = [];
+  
   businessLong: string[] = [];
 
   constructor(private LocationServiceService: LocationServiceService, private http: HttpClient) { }
@@ -32,6 +33,7 @@ export class FoodsearchComponent implements OnInit {
     this.http.get(url, { }).subscribe(data => {
       console.log(data);
       this.storeAPIData(data);
+      console.log(this.businessName.length);
     });
   }
 
