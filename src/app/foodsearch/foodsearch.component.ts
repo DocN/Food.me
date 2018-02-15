@@ -47,10 +47,19 @@ export class FoodsearchComponent implements OnInit {
 
   pickItem(event) {
     let id = event.target.id;
-    event.target.className="btn btn-primary";
     var str = id.replace('input', '');
-    this.pick[str] = true;
-    console.log(id);
+    if(this.pick[str] == true) {
+      this.pick[str] = false;
+      event.target.className="btn btn-light";
+    }
+    else {
+      event.target.className="btn btn-success";
+      this.pick[str] = true;
+      let currentBox = "box" + str;
+      let currentclass = document.getElementById(currentBox).className;
+      document.getElementById(currentBox).className = currentclass;
+      console.log(id);
+    }
   }
 
   randomPick() {
@@ -61,10 +70,17 @@ export class FoodsearchComponent implements OnInit {
     }
     let result = Math.floor((Math.random() * counter) + 0);
     for (let i in this.show) {
+      let currentBox = "box" + i;
+      let currentclass = document.getElementById(currentBox).className;
       this.show[i] = false;
     }   
+
     this.show[this.choices[result]] = true;
+    let winner = "box" + this.choices[result];
+    let currentclass = document.getElementById(winner).className;
+    currentclass = currentclass + " animated bounceInLeft";
+    document.getElementById(winner).className = currentclass;
+    console.log(currentclass);
   }
-
-
 }
+

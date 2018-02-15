@@ -61,6 +61,7 @@ export class BusinessDataService {
 
     var d = R * c;
     var d = d * 0.001;
+    d = Math.round(d);
     return d; 
 
   };

@@ -83,3 +83,9 @@ hr {
 .rngButtonContainer {
     height:100px;
 }
+
+.addressText {
+    margin-left:50px;
+    color:white;
+    font-size:20px;
+}
