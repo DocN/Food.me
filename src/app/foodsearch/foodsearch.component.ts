@@ -71,16 +71,10 @@ export class FoodsearchComponent implements OnInit {
     let result = Math.floor((Math.random() * counter) + 0);
     for (let i in this.show) {
       let currentBox = "box" + i;
-      let currentclass = document.getElementById(currentBox).className;
       this.show[i] = false;
     }   
 
     this.show[this.choices[result]] = true;
-    let winner = "box" + this.choices[result];
-    let currentclass = document.getElementById(winner).className;
-    currentclass = currentclass + " animated bounceInLeft";
-    document.getElementById(winner).className = currentclass;
-    console.log(currentclass);
   }
 }
 
